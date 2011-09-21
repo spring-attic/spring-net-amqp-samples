@@ -29,11 +29,13 @@ namespace Spring.RabbitQuickStart.Client.UI
     /// Handles requests from the UI and forwards them to the remote service.  Messages recieved from
     /// the service routed through this controller to update the UI. 
     /// </summary>
+    /// <author>Mark Pollack</author>
+    /// <author>Don McRae</author>
     public class StockController
     {
         private StockForm stockForm;
-              
-        private IStockService stockService;
+
+        private IStockServiceGateway stockService;
         
         public StockForm StockForm
         {
@@ -41,7 +43,7 @@ namespace Spring.RabbitQuickStart.Client.UI
             set { stockForm = value; }
         }
 
-        public IStockService StockService
+        public IStockServiceGateway StockService
         {
             get { return stockService; }
             set { stockService = value; }
@@ -61,15 +63,16 @@ namespace Spring.RabbitQuickStart.Client.UI
             stockService.Send(tradeRequest);
         }       
         
-        public void UpdateMarketData(IDictionary marketDataDict)
+        public void UpdateMarketData(Quote quote)
         {
-            stockForm.UpdateMarketData(marketDataDict);
+            stockForm.UpdateMarketData(quote);
         }
 
         public void UpdateTrade(TradeResponse tradeResponse)
         {
             stockForm.UpdateTrade(tradeResponse);
         }
+
 
     }
 }

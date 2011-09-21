@@ -25,6 +25,11 @@ using Spring.RabbitQuickStart.Common.Data;
 
 namespace Spring.RabbitQuickStart.Client.Handlers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <author>Mark Pollack</author>
+    /// <author>Don McRae</author>
     public class StockAppHandler
     {
         #region Logging Definition
@@ -42,19 +47,17 @@ namespace Spring.RabbitQuickStart.Client.Handlers
             set { stockController = value; }
         }
 
-        public void Handle(Hashtable data)
+        public void Handle(Quote quote)
         {
-            log.Info(string.Format("Received market data.  Ticker = {0}, Price = {1}", data["TICKER"], data["PRICE"]));
-
+            log.Info(string.Format("Received market data.  Ticker = {0}, Price = {1}", quote.Stock.Ticker, quote.Price));
             // forward to controller to update view
-            stockController.UpdateMarketData(data);
-
+            stockController.UpdateMarketData(quote);
         }
-
 
         public void Handle(TradeResponse tradeResponse)
         {
             log.Info(string.Format("Received trade resonse.  Ticker = {0}, Price = {1}", tradeResponse.Ticker, tradeResponse.Price));
+            // forward to controller to update view
             stockController.UpdateTrade(tradeResponse);
         }
 

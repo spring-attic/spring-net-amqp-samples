@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelloWorld", "HelloWorld", "{6F58B8BF-2F42-40A9-923C-1E90F5824C1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StockApp", "StockApp", "{7C7B5BCA-B78C-42C5-80E7-7FAB44D61CB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Amqp.HelloWorld.BrokerConfiguration.2010", "Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\Spring.Amqp.HelloWorld.BrokerConfiguration.2010.csproj", "{5B53C793-9BB7-4B76-AF93-64AB842C95AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Amqp.HelloWorld.Consumer.2010", "Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.Consumer\Spring.Amqp.HelloWorld.Consumer.2010.csproj", "{1C76615E-A9C1-4589-93CD-3E28745AD7F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Amqp.HelloWorld.Consumer.Async.2010", "Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.Consumer.Async\Spring.Amqp.HelloWorld.Consumer.Async.2010.csproj", "{E128E9D5-66EA-483B-89C9-42023978F9B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Amqp.HelloWorld.Producer.2010", "Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.Producer\Spring.Amqp.HelloWorld.Producer.2010.csproj", "{38D42D7E-0571-4E5F-813D-B5AFB06AFC98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.Amqp.HelloWorld.Producer.Async.2010", "Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.Producer.Async\Spring.Amqp.HelloWorld.Producer.Async.2010.csproj", "{D7A715D3-FBBC-4E39-8D66-8F22D06FA463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.RabbitQuickStart.BrokerConfiguration.2010", "Spring.RabbitQuickStart\src\Spring\Spring.RabbitQuickStart.BrokerConfiguration\Spring.RabbitQuickStart.BrokerConfiguration.2010.csproj", "{DE9CA141-7F53-4469-A286-49AE5D3C36CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.RabbitQuickStart.Client.2010", "Spring.RabbitQuickStart\src\Spring\Spring.RabbitQuickStart.Client\Spring.RabbitQuickStart.Client.2010.csproj", "{E45BAB1E-7C84-446A-AA5C-2EC6D336960B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.RabbitQuickStart.Common.2010", "Spring.RabbitQuickStart\src\Spring\Spring.RabbitQuickStart.Common\Spring.RabbitQuickStart.Common.2010.csproj", "{DE909872-61DE-48EC-BD1A-8DEE4D993F5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring.RabbitQuickStart.Server.2010", "Spring.RabbitQuickStart\src\Spring\Spring.RabbitQuickStart.Server\Spring.RabbitQuickStart.Server.2010.csproj", "{44CBEE25-B904-4222-8F42-6DBE90BC37F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B53C793-9BB7-4B76-AF93-64AB842C95AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B53C793-9BB7-4B76-AF93-64AB842C95AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B53C793-9BB7-4B76-AF93-64AB842C95AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B53C793-9BB7-4B76-AF93-64AB842C95AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C76615E-A9C1-4589-93CD-3E28745AD7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C76615E-A9C1-4589-93CD-3E28745AD7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C76615E-A9C1-4589-93CD-3E28745AD7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C76615E-A9C1-4589-93CD-3E28745AD7F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E128E9D5-66EA-483B-89C9-42023978F9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E128E9D5-66EA-483B-89C9-42023978F9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E128E9D5-66EA-483B-89C9-42023978F9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E128E9D5-66EA-483B-89C9-42023978F9B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38D42D7E-0571-4E5F-813D-B5AFB06AFC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D42D7E-0571-4E5F-813D-B5AFB06AFC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D42D7E-0571-4E5F-813D-B5AFB06AFC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D42D7E-0571-4E5F-813D-B5AFB06AFC98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A715D3-FBBC-4E39-8D66-8F22D06FA463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A715D3-FBBC-4E39-8D66-8F22D06FA463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A715D3-FBBC-4E39-8D66-8F22D06FA463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A715D3-FBBC-4E39-8D66-8F22D06FA463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9CA141-7F53-4469-A286-49AE5D3C36CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9CA141-7F53-4469-A286-49AE5D3C36CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9CA141-7F53-4469-A286-49AE5D3C36CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9CA141-7F53-4469-A286-49AE5D3C36CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E45BAB1E-7C84-446A-AA5C-2EC6D336960B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E45BAB1E-7C84-446A-AA5C-2EC6D336960B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E45BAB1E-7C84-446A-AA5C-2EC6D336960B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E45BAB1E-7C84-446A-AA5C-2EC6D336960B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE909872-61DE-48EC-BD1A-8DEE4D993F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE909872-61DE-48EC-BD1A-8DEE4D993F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE909872-61DE-48EC-BD1A-8DEE4D993F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE909872-61DE-48EC-BD1A-8DEE4D993F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44CBEE25-B904-4222-8F42-6DBE90BC37F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44CBEE25-B904-4222-8F42-6DBE90BC37F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44CBEE25-B904-4222-8F42-6DBE90BC37F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44CBEE25-B904-4222-8F42-6DBE90BC37F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B53C793-9BB7-4B76-AF93-64AB842C95AD} = {6F58B8BF-2F42-40A9-923C-1E90F5824C1D}
+		{1C76615E-A9C1-4589-93CD-3E28745AD7F0} = {6F58B8BF-2F42-40A9-923C-1E90F5824C1D}
+		{E128E9D5-66EA-483B-89C9-42023978F9B8} = {6F58B8BF-2F42-40A9-923C-1E90F5824C1D}
+		{38D42D7E-0571-4E5F-813D-B5AFB06AFC98} = {6F58B8BF-2F42-40A9-923C-1E90F5824C1D}
+		{D7A715D3-FBBC-4E39-8D66-8F22D06FA463} = {6F58B8BF-2F42-40A9-923C-1E90F5824C1D}
+		{DE9CA141-7F53-4469-A286-49AE5D3C36CC} = {7C7B5BCA-B78C-42C5-80E7-7FAB44D61CB1}
+		{E45BAB1E-7C84-446A-AA5C-2EC6D336960B} = {7C7B5BCA-B78C-42C5-80E7-7FAB44D61CB1}
+		{DE909872-61DE-48EC-BD1A-8DEE4D993F5B} = {7C7B5BCA-B78C-42C5-80E7-7FAB44D61CB1}
+		{44CBEE25-B904-4222-8F42-6DBE90BC37F1} = {7C7B5BCA-B78C-42C5-80E7-7FAB44D61CB1}
+	EndGlobalSection
+EndGlobal

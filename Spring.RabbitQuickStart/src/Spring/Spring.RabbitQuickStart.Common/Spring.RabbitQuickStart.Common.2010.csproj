@@ -58,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\StockExchange.cs" />
+    <Compile Include="Data\Quote.cs" />
+    <Compile Include="Data\Stock.cs" />
     <Compile Include="Data\TradeRequest.cs" />
     <Compile Include="Data\TradeResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

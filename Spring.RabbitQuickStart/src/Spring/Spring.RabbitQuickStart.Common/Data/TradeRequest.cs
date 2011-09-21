@@ -24,6 +24,7 @@ namespace Spring.RabbitQuickStart.Common.Data
     /// Simple POCO class that represents a simple trade request
     /// </summary>
     /// <author>Mark Pollack</author>
+    /// <author>Don McRae</author>
     public class TradeRequest
     {
         private string ticker;

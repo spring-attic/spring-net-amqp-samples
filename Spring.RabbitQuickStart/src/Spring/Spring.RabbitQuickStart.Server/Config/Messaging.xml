@@ -2,17 +2,15 @@
 <objects xmlns="http://www.springframework.net">
 
   <object id="ConnectionFactory" type="Spring.Messaging.Amqp.Rabbit.Connection.SingleConnectionFactory, Spring.Messaging.Amqp.Rabbit">
+  </object>
 
+  <object name="MarketDataGateway" type="Spring.RabbitQuickStart.Server.Gateways.MarketDataGateway, Spring.RabbitQuickStart.Server">
+    <property name="RabbitTemplate" ref="RabbitTemplate"/>
   </object>
 
   <object name="RabbitTemplate" type="Spring.Messaging.Amqp.Rabbit.Core.RabbitTemplate, Spring.Messaging.Amqp.Rabbit">
     <property name="ConnectionFactory" ref="ConnectionFactory"/>
-    <property name="Queue" value="APP.STOCK.MARKETDATA"/>
     <property name="MessageConverter" ref="JsonMessageConverter"/>
-  </object>
-
-  <object name="MarketDataGateway" type="Spring.RabbitQuickStart.Server.Gateways.MarketDataServiceGateway, Spring.RabbitQuickStart.Server">
-    <property name="RabbitTemplate" ref="RabbitTemplate"/>
   </object>
 
   <!-- Consume messages on queue APP.STOCK.REQUEST -->
@@ -21,7 +19,6 @@
     <property name="QueueNames" value="APP.STOCK.REQUEST"/>
     <property name="ConcurrentConsumers" value="5"/>
     <property name="MessageListener" ref="MessageListenerAdapter"/>
-    <property name="AutoStartup" value="true" />
   </object>
 
   <!-- Plain object message handler -->

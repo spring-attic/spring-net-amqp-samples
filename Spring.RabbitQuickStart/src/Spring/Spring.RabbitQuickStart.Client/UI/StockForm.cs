@@ -24,9 +24,17 @@ using System.Windows.Forms;
 using Common.Logging;
 using Spring.Context.Support;
 using Spring.RabbitQuickStart.Common.Data;
+using Spring.Messaging.Amqp.Core;
+using Spring.Messaging.Amqp.Rabbit.Connection;
+using Spring.Messaging.Amqp.Rabbit.Core;
 
 namespace Spring.RabbitQuickStart.Client.UI
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <author>Mark Pollack</author>
+    /// <author>Don McRae</author>
     public partial class StockForm : Form
     {
         #region Logging Definition
@@ -36,6 +44,7 @@ namespace Spring.RabbitQuickStart.Client.UI
         #endregion
 
         private StockController stockController;
+        private string _currentBinding;
 
         public StockForm()
         {
@@ -67,13 +76,88 @@ namespace Spring.RabbitQuickStart.Client.UI
                            }));
         }
 
-        public void UpdateMarketData(IDictionary marketDataDict)
+        public void UpdateMarketData(Quote quote)
         {
             Invoke(new MethodInvoker(
                        delegate
-                           {                               
-                               marketDataListBox.Items.Add(marketDataDict["TICKER"] + " " + marketDataDict["PRICE"]);
+                           {
+                               marketDataListBox.Items.Add(quote.Stock.StockExchange.ToString() + "." + quote.Stock.Ticker + " " + quote.Price);
                            }));
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            RebindQueue(txtRoutingKey.Text);
+            marketDataListBox.Items.Clear();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            RebindQueue(string.Empty);
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            RebindQueue(txtRoutingKey.Text);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            marketDataListBox.Items.Clear();
+        }
+
+        private void StockForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                using (IConnectionFactory connectionFactory = new SingleConnectionFactory())
+                {
+                    IAmqpAdmin amqpAdmin = new RabbitAdmin(connectionFactory);
+
+                    TopicExchange mktDataExchange = new TopicExchange("APP.STOCK.MARKETDATA", false, false);
+                    amqpAdmin.DeclareExchange(mktDataExchange);
+                    Spring.Messaging.Amqp.Core.Queue mktDataQueue = new Spring.Messaging.Amqp.Core.Queue("APP.STOCK.MARKETDATA");
+                    amqpAdmin.DeclareQueue(mktDataQueue);
+
+                    //Create the Exchange for MarketData Requests if it does not already exist.
+                    //amqpAdmin.DeclareBinding(BindingBuilder.Bind(mktDataQueue).To(mktDataExchange).With(_currentBinding));
+                    //Set up initial binding
+                    RebindQueue("APP.STOCK.QUOTES.nasdaq.*");
+                }
+            }
+            catch (Exception ex)
+            {
+                 log.ErrorFormat("Uncaught application exception.", ex);
+            }
+        }
+
+        private void RebindQueue(string routingKey)
+        {
+            try
+            {
+                using (IConnectionFactory connectionFactory = new SingleConnectionFactory())
+                {
+                    IAmqpAdmin amqpAdmin = new RabbitAdmin(connectionFactory);
+
+                    TopicExchange mktDataExchange = new TopicExchange("APP.STOCK.MARKETDATA", false, false);
+                    Spring.Messaging.Amqp.Core.Queue mktDataQueue = new Spring.Messaging.Amqp.Core.Queue("APP.STOCK.MARKETDATA");
+
+                    if (!string.IsNullOrEmpty(_currentBinding))
+                        amqpAdmin.RemoveBinding(BindingBuilder.Bind(mktDataQueue).To(mktDataExchange).With(_currentBinding));
+
+                    _currentBinding = routingKey;
+                    if (!string.IsNullOrEmpty(_currentBinding))
+                    {
+                        amqpAdmin.DeclareBinding(BindingBuilder.Bind(mktDataQueue).To(mktDataExchange).With(_currentBinding));
+                        txtRoutingKey.Text = _currentBinding;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                log.ErrorFormat("Uncaught application exception.", ex);
+            }
         }
     }
 }

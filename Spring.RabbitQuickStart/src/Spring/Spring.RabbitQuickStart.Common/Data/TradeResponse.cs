@@ -21,9 +21,10 @@
 namespace Spring.RabbitQuickStart.Common.Data
 {
     /// <summary>
-    ///  
+    /// Simple POCO class that represents a simple trade response
     /// </summary>
     /// <author>Mark Pollack</author>
+    /// <author>Don McRae</author>
     public class TradeResponse
     {
         private string ticker;

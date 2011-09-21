@@ -48,11 +48,6 @@ namespace Spring.RabbitQuickStart.Client
                 Application.SetCompatibleTextRenderingDefault(false);
                 using (IApplicationContext ctx = ContextRegistry.GetContext())
                 {
-                    //Autostart should be used in messaging.xml instead
-                    Spring.Messaging.Amqp.Rabbit.Listener.SimpleMessageListenerContainer container =
-                         ContextRegistry.GetContext().GetObject("MessageListenerContainer") as Spring.Messaging.Amqp.Rabbit.Listener.SimpleMessageListenerContainer;
-                    container.Start();
-                    
                     StockForm stockForm = new StockForm();
                     Application.ThreadException += ThreadException;
                     Application.Run(stockForm);
