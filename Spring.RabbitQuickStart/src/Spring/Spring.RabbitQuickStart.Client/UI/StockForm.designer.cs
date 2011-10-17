@@ -167,6 +167,7 @@ namespace Spring.RabbitQuickStart.Client.UI
             this.Controls.Add(this.tradeRequestButton);
             this.Name = "StockForm";
             this.Text = "TradeForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StockForm_FormClosing);
             this.Load += new System.EventHandler(this.StockForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -159,5 +159,10 @@ namespace Spring.RabbitQuickStart.Client.UI
                 log.ErrorFormat("Uncaught application exception.", ex);
             }
         }
+
+        private void StockForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            RebindQueue(string.Empty);
+        }
     }
 }

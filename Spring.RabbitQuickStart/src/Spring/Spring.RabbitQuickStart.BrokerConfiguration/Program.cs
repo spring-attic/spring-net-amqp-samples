@@ -48,9 +48,6 @@ namespace Spring.RabbitQuickStart.BrokerConfiguration
                 Queue mktDataQueue = new Queue(ConfigurationManager.AppSettings["MARKET_DATA_QUEUE_NAME"]);
                 amqpAdmin.DeclareQueue(mktDataQueue);
 
-                //Create the Exchange for MarketData Requests if it does not already exist.
-                amqpAdmin.DeclareBinding(BindingBuilder.Bind(mktDataQueue).To(mktDataExchange).With(ConfigurationManager.AppSettings["MARKET_DATA_ROUTING_KEY"]));
-
                 Console.WriteLine("Queues and exchanges have been declared.");
                 Console.WriteLine("Press 'enter' to exit");
                 Console.ReadLine();
