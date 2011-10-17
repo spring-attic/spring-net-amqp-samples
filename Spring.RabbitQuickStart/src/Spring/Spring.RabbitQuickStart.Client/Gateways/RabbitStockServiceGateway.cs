@@ -42,13 +42,22 @@ namespace Spring.RabbitQuickStart.Client.Gateways
 
         public void Send(TradeRequest tradeRequest)
         {
+/****This overload is (temporarily???) missing in the 0.9.5.7620 build of the RabbitTemplate so we have to do this the 'long' way for now...
             RabbitTemplate.ConvertAndSend(tradeRequest, delegate(Message message)
             {
                 message.MessageProperties.ReplyTo = new Address(defaultReplyToQueue);
                 message.MessageProperties.CorrelationId = new Guid().ToByteArray();
                 return message;
             });
+ */
+            var msg = RabbitTemplate.MessageConverter.ToMessage(tradeRequest,
+                                                                new MessageProperties()
+                                                                    {
+                                                                        ReplyTo = new Address(defaultReplyToQueue),
+                                                                        CorrelationId = new Guid().ToByteArray()
+                                                                    });
 
+            RabbitTemplate.Send(msg);
         }
     }
 }
