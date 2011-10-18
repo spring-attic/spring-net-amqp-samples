@@ -76,19 +76,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Spring.Messaging.Erlang.1.0\lib\net40\Spring.Erlang.dll</HintPath>
     </Reference>
-    <Reference Include="Spring.Messaging.Amqp, Version=0.9.5.7620, Culture=neutral, PublicKeyToken=2954ea1110aebcfa, processorArchitecture=MSIL">
+    <Reference Include="Spring.Messaging.Amqp, Version=0.9.6.0, Culture=neutral, PublicKeyToken=2954ea1110aebcfa, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Spring.Messaging.Amqp.0.9.5.7620\lib\net40\Spring.Messaging.Amqp.dll</HintPath>
+      <HintPath>..\..\packages\Spring.Messaging.Amqp.0.9.6\lib\net40\Spring.Messaging.Amqp.dll</HintPath>
     </Reference>
-    <Reference Include="Spring.Messaging.Amqp.Rabbit, Version=0.9.5.7620, Culture=neutral, PublicKeyToken=2954ea1110aebcfa, processorArchitecture=MSIL">
+    <Reference Include="Spring.Messaging.Amqp.Rabbit, Version=0.9.6.0, Culture=neutral, PublicKeyToken=2954ea1110aebcfa, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Spring.Messaging.Amqp.Rabbit.0.9.5.7620\lib\net40\Spring.Messaging.Amqp.Rabbit.dll</HintPath>
+      <HintPath>..\..\packages\Spring.Messaging.Amqp.Rabbit.0.9.6\lib\net40\Spring.Messaging.Amqp.Rabbit.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Messaging.Amqp.Rabbit.Admin">
       <HintPath>..\..\packages\Spring.Messaging.Amqp.Rabbit.Admin.1.0\lib\net40\Spring.Messaging.Amqp.Rabbit.Admin.dll</HintPath>
-    </Reference>
-    <Reference Include="Spring.Threading, Version=1.0.0.29117, Culture=neutral, PublicKeyToken=bbc1abe154051bac, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Spring.Messaging.Amqp.Rabbit.0.9.5.7620\lib\net40\Spring.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

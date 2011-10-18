@@ -32,7 +32,7 @@ namespace Spring.Amqp.HelloWorld.BrokerConfiguration
     {
         private static void Main(string[] args)
         {
-            using (IConnectionFactory connectionFactory = new SingleConnectionFactory())
+            using (IConnectionFactory connectionFactory = new CachingConnectionFactory())
             {
                 IAmqpAdmin amqpAdmin = new RabbitAdmin(connectionFactory);
 

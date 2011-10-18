@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <objects xmlns="http://www.springframework.net">
 
-  <object id="ConnectionFactory" type="Spring.Messaging.Amqp.Rabbit.Connection.SingleConnectionFactory, Spring.Messaging.Amqp.Rabbit">
+  <object id="ConnectionFactory" type="Spring.Messaging.Amqp.Rabbit.Connection.CachingConnectionFactory, Spring.Messaging.Amqp.Rabbit">
+
   </object>
 
   <object name="MarketDataGateway" type="Spring.RabbitQuickStart.Server.Gateways.MarketDataGateway, Spring.RabbitQuickStart.Server">
@@ -32,9 +33,14 @@
     <property name="TypeMapper" ref="TypeMapper"/>
   </object>
 
-  <object name="TypeMapper" type="Spring.Messaging.Amqp.Support.Converter.TypeMapper, Spring.Messaging.Amqp">
-    <property name="DefaultNamespace" value="Spring.RabbitQuickStart.Common.Data"/>
-    <property name="DefaultAssemblyName" value="Spring.RabbitQuickStart.Common"/>
+  <object name="TypeMapper" type="Spring.Messaging.Amqp.Support.Converter.DefaultTypeMapper, Spring.Messaging.Amqp">
+    <property name="IdTypeMapping">
+      <dictionary>
+        <entry key="TradeRequest" value="Spring.RabbitQuickStart.Common.Data.TradeRequest, Spring.RabbitQuickStart.Common" />
+        <entry key="TradeResponse" value="Spring.RabbitQuickStart.Common.Data.TradeResponse, Spring.RabbitQuickStart.Common" />
+        <entry key="Quote" value="Spring.RabbitQuickStart.Common.Data.Quote, Spring.RabbitQuickStart.Common" />
+      </dictionary>
+    </property>
   </object>
 
 </objects>

@@ -20,9 +20,11 @@
 
 using System;
 using System.Configuration;
+using Spring.Erlang.Connection;
 using Spring.Messaging.Amqp.Core;
 using Spring.Messaging.Amqp.Rabbit.Connection;
 using Spring.Messaging.Amqp.Rabbit.Core;
+using IConnectionFactory = Spring.Messaging.Amqp.Rabbit.Connection.IConnectionFactory;
 
 namespace Spring.RabbitQuickStart.BrokerConfiguration
 {
@@ -35,7 +37,7 @@ namespace Spring.RabbitQuickStart.BrokerConfiguration
     {
         static void Main(string[] args)
         {
-            using (IConnectionFactory connectionFactory = new SingleConnectionFactory())
+            using (IConnectionFactory connectionFactory = new CachingConnectionFactory())
             {
                 IAmqpAdmin amqpAdmin = new RabbitAdmin(connectionFactory);
 

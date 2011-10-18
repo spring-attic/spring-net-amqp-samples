@@ -24,6 +24,7 @@ using System.Threading;
 using RabbitMQ.Client;
 using Spring.Context.Support;
 using Spring.Messaging.Amqp.Rabbit.Core;
+using Spring.Messaging.Amqp.Support.Converter;
 using Spring.RabbitQuickStart.Server.Gateways;
 
 namespace Spring.RabbitQuickStart.Server
@@ -39,12 +40,12 @@ namespace Spring.RabbitQuickStart.Server
         {
             try
             {
-                // Using Spring's IoC container
-                ContextRegistry.GetContext();
-
                 Console.Out.WriteLine("Server listening...");
-                IMarketDataGateway marketDataService =
-                    ContextRegistry.GetContext().GetObject("MarketDataGateway") as MarketDataGateway;
+                IMarketDataGateway marketDataService = ContextRegistry.GetContext().GetObject("MarketDataGateway") as MarketDataGateway;
+
+                if (null == marketDataService)
+                    throw new Spring.Objects.Factory.NoSuchObjectDefinitionException("MarketDataGateway",
+                                                                                     "Unable to find ObjectDefinition");
                 ThreadStart job = new ThreadStart(marketDataService.SendMarketData);
                 Thread thread = new Thread(job);
                 thread.Start();

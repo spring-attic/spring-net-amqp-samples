@@ -39,7 +39,7 @@ namespace Spring.RabbitQuickStart.Client.UI
     {
         #region Logging Definition
 
-        private static readonly ILog log = LogManager.GetLogger(typeof (StockForm));
+        private static readonly ILog log = LogManager.GetLogger(typeof(StockForm));
 
         #endregion
 
@@ -63,7 +63,7 @@ namespace Spring.RabbitQuickStart.Client.UI
             //In this simple example no data is collected from the view.
             //Instead a hardcoded trade request is created in the controller.
             tradeRequestStatusTextBox.Text = "Request Pending...";
-            stockController.SendTradeRequest();            
+            stockController.SendTradeRequest();
             log.Info("Sent trade request.");
         }
 
@@ -71,18 +71,18 @@ namespace Spring.RabbitQuickStart.Client.UI
         {
             Invoke(new MethodInvoker(
                        delegate
-                           {
-                               tradeRequestStatusTextBox.Text = "Confirmed. " + trade.Ticker + " " + trade.Price;
-                           }));
+                       {
+                           tradeRequestStatusTextBox.Text = "Confirmed. " + trade.Ticker + " " + trade.Price;
+                       }));
         }
 
         public void UpdateMarketData(Quote quote)
         {
             Invoke(new MethodInvoker(
                        delegate
-                           {
-                               marketDataListBox.Items.Add(quote.Stock.StockExchange.ToString() + "." + quote.Stock.Ticker + " " + quote.Price);
-                           }));
+                       {
+                           marketDataListBox.Items.Add(quote.Stock.StockExchange.ToString() + "." + quote.Stock.Ticker + " " + quote.Price);
+                       }));
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace Spring.RabbitQuickStart.Client.UI
         {
             try
             {
-                using (IConnectionFactory connectionFactory = new SingleConnectionFactory())
+                using (IConnectionFactory connectionFactory = new CachingConnectionFactory())
                 {
                     IAmqpAdmin amqpAdmin = new RabbitAdmin(connectionFactory);
 
@@ -127,31 +127,34 @@ namespace Spring.RabbitQuickStart.Client.UI
             }
             catch (Exception ex)
             {
-                 log.ErrorFormat("Uncaught application exception.", ex);
+                log.ErrorFormat("Uncaught application exception.", ex);
             }
         }
 
         private void RebindQueue(string routingKey)
         {
+
+            var ctx = ContextRegistry.GetContext();
+            var factory =
+                ctx.GetObject("ConnectionFactory") as IConnectionFactory;
+                
             try
             {
-                using (IConnectionFactory connectionFactory = new SingleConnectionFactory())
+                IAmqpAdmin amqpAdmin = new RabbitAdmin(factory);
+
+                TopicExchange mktDataExchange = new TopicExchange("APP.STOCK.MARKETDATA", false, false);
+                Spring.Messaging.Amqp.Core.Queue mktDataQueue = new Spring.Messaging.Amqp.Core.Queue("APP.STOCK.MARKETDATA");
+
+                if (!string.IsNullOrEmpty(_currentBinding))
+                    amqpAdmin.RemoveBinding(BindingBuilder.Bind(mktDataQueue).To(mktDataExchange).With(_currentBinding));
+
+                _currentBinding = routingKey;
+                if (!string.IsNullOrEmpty(_currentBinding))
                 {
-                    IAmqpAdmin amqpAdmin = new RabbitAdmin(connectionFactory);
-
-                    TopicExchange mktDataExchange = new TopicExchange("APP.STOCK.MARKETDATA", false, false);
-                    Spring.Messaging.Amqp.Core.Queue mktDataQueue = new Spring.Messaging.Amqp.Core.Queue("APP.STOCK.MARKETDATA");
-
-                    if (!string.IsNullOrEmpty(_currentBinding))
-                        amqpAdmin.RemoveBinding(BindingBuilder.Bind(mktDataQueue).To(mktDataExchange).With(_currentBinding));
-
-                    _currentBinding = routingKey;
-                    if (!string.IsNullOrEmpty(_currentBinding))
-                    {
-                        amqpAdmin.DeclareBinding(BindingBuilder.Bind(mktDataQueue).To(mktDataExchange).With(_currentBinding));
-                        txtRoutingKey.Text = _currentBinding;
-                    }
+                    amqpAdmin.DeclareBinding(BindingBuilder.Bind(mktDataQueue).To(mktDataExchange).With(_currentBinding));
+                    txtRoutingKey.Text = _currentBinding;
                 }
+
 
             }
             catch (Exception ex)

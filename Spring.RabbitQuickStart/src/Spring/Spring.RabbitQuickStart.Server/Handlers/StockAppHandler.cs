@@ -38,17 +38,17 @@ namespace Spring.RabbitQuickStart.Server.Handlers
         private readonly ILog logger = LogManager.GetLogger(typeof(StockAppHandler));
 
         #endregion
-        private IExecutionVenueService executionVenueService;
+        private readonly IExecutionVenueService _executionVenueService;
 
-        private ICreditCheckService creditCheckService;
+        private readonly ICreditCheckService _creditCheckService;
 
-        private ITradingService tradingService;
+        private readonly ITradingService _tradingService;
 
         public StockAppHandler(IExecutionVenueService executionVenueService, ICreditCheckService creditCheckService, ITradingService tradingService)
         {
-            this.executionVenueService = executionVenueService;
-            this.creditCheckService = creditCheckService;
-            this.tradingService = tradingService;
+            _executionVenueService = executionVenueService;
+            _creditCheckService = creditCheckService;
+            _tradingService = tradingService;
         }
 
         public TradeResponse Handle(TradeRequest tradeRequest)
@@ -56,18 +56,18 @@ namespace Spring.RabbitQuickStart.Server.Handlers
             logger.Info("Recieved trade request");
             TradeResponse tradeResponse;
             ArrayList errors = new ArrayList();
-            if (creditCheckService.CanExecute(tradeRequest, errors))
+            if (_creditCheckService.CanExecute(tradeRequest, errors))
             {
-                tradeResponse = executionVenueService.ExecuteTradeRequest(tradeRequest);
+                tradeResponse = _executionVenueService.ExecuteTradeRequest(tradeRequest);
             }
             else
             {
                 tradeResponse = new TradeResponse();
                 tradeResponse.Error = true;
                 tradeResponse.ErrorMessage = StringUtils.ArrayToCommaDelimitedString(errors.ToArray());
-                
+
             }
-            tradingService.ProcessTrade(tradeRequest, tradeResponse);
+            _tradingService.ProcessTrade(tradeRequest, tradeResponse);
             return tradeResponse;
         }
     }
