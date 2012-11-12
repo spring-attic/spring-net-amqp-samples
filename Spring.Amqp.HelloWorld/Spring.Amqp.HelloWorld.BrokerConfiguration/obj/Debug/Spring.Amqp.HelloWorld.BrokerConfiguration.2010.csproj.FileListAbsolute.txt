@@ -22,7 +22,6 @@ C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.Br
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\obj\Debug\Spring.Amqp.HelloWorld.BrokerConfiguration.exe
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\obj\Debug\Spring.Amqp.HelloWorld.BrokerConfiguration.pdb
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Newtonsoft.Json.dll
-C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Newtonsoft.Json.pdb
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Newtonsoft.Json.xml
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Messaging.Amqp.pdb
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Messaging.Amqp.Rabbit.pdb
