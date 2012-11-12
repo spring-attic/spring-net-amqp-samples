@@ -35,7 +35,7 @@
 
   <object name="TypeMapper" type="Spring.Messaging.Amqp.Support.Converter.DefaultTypeMapper, Spring.Messaging.Amqp">
     <property name="IdTypeMapping">
-      <dictionary>
+      <dictionary key-type="System.String" value-type="System.Object">
         <entry key="TradeRequest" value="Spring.RabbitQuickStart.Common.Data.TradeRequest, Spring.RabbitQuickStart.Common" />
         <entry key="TradeResponse" value="Spring.RabbitQuickStart.Common.Data.TradeResponse, Spring.RabbitQuickStart.Common" />
         <entry key="Quote" value="Spring.RabbitQuickStart.Common.Data.Quote, Spring.RabbitQuickStart.Common" />
