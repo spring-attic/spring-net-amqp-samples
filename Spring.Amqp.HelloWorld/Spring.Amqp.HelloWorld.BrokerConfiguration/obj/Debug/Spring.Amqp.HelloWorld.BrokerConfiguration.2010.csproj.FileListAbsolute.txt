@@ -7,9 +7,7 @@ C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.Br
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Aop.dll
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Core.dll
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Data.dll
-C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Erlang.dll
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Messaging.Amqp.dll
-C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Messaging.Amqp.Rabbit.Admin.dll
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Messaging.Amqp.Rabbit.dll
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\RabbitMQ.Client.xml
 C:\_prj\spring-net-amqp-samples\Spring.Amqp.HelloWorld\Spring.Amqp.HelloWorld.BrokerConfiguration\bin\Debug\Spring.Aop.pdb
